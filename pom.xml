@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com-atsz</groupId>
+		<artifactId>atsz-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.atsz</groupId>
+	<artifactId>atsz-sso</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>atsz-sso-service</module>
+		<module>atsz-sso-interface</module>
+	</modules>
+
+	<dependencies>
+		<!-- 依赖common -->
+		<dependency>
+			<groupId>com.atsz</groupId>
+			<artifactId>atsz-manager-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- 第三方依赖 -->
+		
+		
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<!-- 配置Tomcat插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<path>/</path>
+					<port>8083</port>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<context:component-scan base-package="com.atsz.sso.service"/>
+	
+	<!-- dubbo服务应用名称 -->
+	<dubbo:application name="atsz-sso-service"/>
+	<dubbo:protocol name="dubbo" port="20883"></dubbo:protocol>
+	<!-- dubbo的注册中心 -->
+	<dubbo:registry protocol="zookeeper" address="39.104.80.90:2181"></dubbo:registry>
+	
+	<!-- 注册服务 -->
+	<dubbo:service interface="com.atsz.sso.service.UserService" ref="userServiceImpl" timeout="10000000"></dubbo:service>
+	
+<!-- 	 -->
+</beans>
